@@ -2,6 +2,21 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+export const MICRO_APPS = [
+  {
+    appName: 'app1',
+    main: 'http://localhost:4301/main.js',
+    path: '/app1',
+    codigo: 0
+  },
+  {
+    appName: 'app2',
+    main: 'http://localhost:4302/main.js',
+    path: '/app2',
+    codigo: 1
+  }
+];
+
 export const environment = {
   production: false
 };

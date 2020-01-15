@@ -5,15 +5,20 @@ import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MicroAppComponent } from './micro-app/micro-app.component';
 
-const ROUTES_APP: Routes = [{
-  path: 'app1',
-  children: [{ path: '**', component: MicroAppComponent }]
-},
-{
-  path: '',
-  redirectTo: 'app1',
-  pathMatch: 'full'
-}
+const ROUTES_APP: Routes = [
+  {
+    path: 'app1',
+    children: [{ path: '**', component: MicroAppComponent }]
+  },
+  {
+    path: 'app2',
+    children: [{ path: '**', component: MicroAppComponent }]
+  },
+  {
+    path: '',
+    redirectTo: 'app1',
+    pathMatch: 'full'
+  }
 ];
 
 

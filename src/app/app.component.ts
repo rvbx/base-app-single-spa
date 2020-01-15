@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 // Single SPA
 import * as singleSpa from 'single-spa';
 import { MICRO_APPS } from 'src/environments/environment';
@@ -8,7 +8,7 @@ import { MICRO_APPS } from 'src/environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'base';
 
 
@@ -23,7 +23,7 @@ ngAfterViewInit() {
       singleSpa.registerApplication(
         MICRO_APP.appName,
         // @ts-ignore
-        () => System.import(MICRO_APP.main).then(appModule => {
+        () => window.System.import(MICRO_APP.main).then(appModule => {
           console.log('app module: single-spa', appModule);
           return appModule.default;
         }),

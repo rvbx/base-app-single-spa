@@ -6,7 +6,11 @@ import {BehaviorSubject, Observable} from "rxjs";
 })
 export class BaseInfoService {
 
-  private foo: BehaviorSubject<string> = new BehaviorSubject('foo value!');
-  public foo$: Observable<string> = this.foo.asObservable();
+  private static foo: BehaviorSubject<string> = new BehaviorSubject('foo value!');
+  public foo$: Observable<string> = BaseInfoService.foo.asObservable();
+
+  public setFoo(value: string) {
+    if (value) { BaseInfoService.foo.next(value); }
+  }
 
 }

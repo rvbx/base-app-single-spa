@@ -33,7 +33,10 @@ export class AppComponent implements AfterViewInit {
           return appModule.default;
         }),
         location => location.pathname.startsWith(MICRO_APP.path),
-        {foo: this.baseInfo.foo$}
+        {
+          foo: this.baseInfo.foo$,
+          setFoo: this.baseInfo.setFoo
+        }
       );
     });
 
